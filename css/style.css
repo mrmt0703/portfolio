@@ -1,0 +1,500 @@
+@charset "UTF-8";     /* 文字コードの記述 */
+
+/* -----------------------
+******  common.html  ******
+--------------------------*/
+body {
+  background-color: #ccc;
+  color: #333;
+  font-size: 15px;
+  line-height: 2;
+  margin: 0 auto;
+}
+a {
+  color: #3538aa;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+a:visited {
+  color: #788d93;             /* 訪問済みの状態 */
+}
+a:hover {
+  text-decoration:underline;    /* リンク上でアンダーライン表示の状態 */
+}
+/* -----------------------
+          header
+--------------------------*/
+header {
+  margin: 0 auto;
+  width: 80%;
+  height: 100px;
+}
+.logo {
+  float: left;
+  margin-top: 40px;
+}
+.global-nav {
+  float: right;
+  margin-top: 40px;
+}
+.global-nav li {
+  float: left;
+  margin: 0 20px;
+  font-size: 20px;
+  list-style: none;
+  font-family: 'Bitter', serif;
+}
+.global-nav li a {
+  color: #fff;
+}
+.global-nav li a:hover {
+  border-bottom: 2px solid #fff;
+  padding-bottom: 3px;
+  text-decoration: none;
+}
+/* -----------------------
+          wrap
+--------------------------*/
+/* ※id属性にcssを適用する場合は、#(シャープ)の後ろにid名を記述していく */
+/* プロパティclearはfloatを解除するためのプロパティ。今回はheaderに付与されているがheader以降も反映されてしまうため記述が必要になる */
+#wrap {
+  width: 80%;
+  margin: 0 auto;
+  clear: both;
+  background-color: #fff;
+  margin-top: 220px;              /* メインヴィジュアルが隠れてしまったため上端に余白を追加 */
+  padding: 35px 0;
+}
+.content {
+  width: 100%;
+  margin:0 auto;
+}
+/* -----------------------
+         footer
+--------------------------*/
+footer {
+  color: #fff;
+  text-align: center;
+  padding: 20px 0;
+  background-color: #767671;
+}
+footer small {
+  font-size: 12px;
+}
+
+/*------------------------
+******  index.html  ******
+-------------------------*/
+#index {
+  background-image: url(/images/perfume-ring.jpg);
+  background-repeat: no-repeat;         /* 繰り返しを制御する */
+  background-position: center center;   /* 表示開始位置を指定する */
+  background-attachment: fixed;         /* 表示位置を固定する */
+  background-size: cover;               /* 大きさを指定する ※縦横比を保持したままフルスクリーンで拡大縮小するcover */
+}
+#index #wrap {
+  background-color: transparent;        /* #wrapの背景が#fffのため解除するためにtransparentで透明にする */
+  margin-top: 0;
+  padding: 0;                           /* margin,paddingの指定も解除 */
+}
+
+#index h1 {
+  font-size: 100px;
+  line-height: 1;
+  color: #fff;
+  font-family: 'Bitter', serif;
+  margin-bottom: 50px;
+  border: none;                          /* h1の下線を解除 */
+}
+#index .content {
+  margin-top: 150px;
+}
+#index p {
+  font-size: 16px;
+  color: #fff;
+}
+.btn a {
+  background-color: #009cd3;
+  color: #fff;
+  font-size: 20px;
+  font-family: 'Bitter', serif;
+  display: block;
+  width: 185px;                         /* inline要素からblock要素に変更し、横幅を指定 */
+  text-align: center;
+  line-height: 50px;
+  margin-top: 20px;                     /* 上下に高さを持たせるためにline-heightし中央寄せて本文とのバランスでmargin-topを指定 */
+  border-radius: 5px;                   /* ボタンの角を丸くする */
+  border: 3px solid #009cd3;          /* マウスを置いたときに色を反転させるためのcss */
+}
+.btn a:hover {
+  text-decoration: none;
+  background-color: #fff;
+  color: #009cd3;                     /* 通常状態と真逆でcolorを設定することでわかりやすく反転する */
+}
+#index footer {
+  width: 100%;
+  margin: 150px auto 0 auto;
+  text-align: left;
+  background-color: transparent;         /* フッターの背景色も解除 */
+}
+
+/*------------------------
+******  about.html  ******
+-------------------------*/
+#about {
+  background-image: url(/images/bg-about.jpg);
+  background-repeat: no-repeat;
+  background-position: center top;                 /* topにすることで上端に背景画像を設置する */
+  background-attachment: fixed;
+  background-size: 100% auto;                      /*横方向へ100％ 縦方向へはautoで領域に収まるよう指定し要素の長辺に合わせて表示する*/
+  margin: 0 auto;
+}
+.main-center {
+  width: 90%;
+  margin: 0 auto;
+}
+h1 {
+  font-family: 'Bitter', serif;
+  font-size: 36px;
+  border-bottom: 1px solid #ccc;
+}
+h2 {
+  font-family: 'Bitter', serif;
+  font-size: 24px;
+}
+h2 img {
+  width: 100%;
+}
+
+/* 【疑似要素とは】
+要素の前後にテキストや画像を追加、また要素内の特定箇所にスタイルを指定することができるコーディング
+記述例    [セレクタ]::[疑似要素名]
+要素の前に追加したい場合は「::before」、後ろに追加の場合は「::after」となる
+*/
+.icon::before {
+  content: "";
+  padding-right: 10px;
+  border-left: 7px solid #9cb4a4;
+}
+#about .profile-txt {
+  width: 540px;
+  float: left;                          /* プロフィール文のレイアウト */
+}
+#about .profile-txt span{
+  font-weight: bold;
+}
+#about .profile-img {
+  float: right;
+}
+
+/*親要素に高さを持たせ要素の回り込みを解除するclearfix
+クラス名で追加したclearfixに疑似クラス::afterを追加しcontentで空BOXを生成
+空BOXはインライン要素のためblock要素に変更し、clear:bothでfloatを解除することによりレイアウトが修正される
+*/
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+section {
+  margin-bottom: 35px;
+}
+#about .career th {
+  width: 240px;
+  background-color: #f0f0f0;
+  padding: 12px 0;
+  border: 1px solid #ccc;             /* th要素はデフォルトで中央揃え */
+}
+#about .career td {
+  width: 660px;
+  padding: 12px 0 12px 40px;
+  border: 1px solid #ccc;
+}
+table {
+  border-spacing: 0;                    /* テーブル要素（セル間）の余白を調整 */
+  border-collapse: collapse;            /* 隣り合うボーダーを結合するか分離するか指定 */
+}
+
+/*------------------------
+******  portfolio.html  ******
+サイドバーによる2カラムレイアウトページ作成
+-------------------------*/
+#portfolio {
+  background-image: url(/images/bg-portfolio.jpg);
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-attachment: fixed;
+  background-size: 100% auto;           /* #aboutのcssより拝借 */
+}
+.main {
+  width: 70%;
+  margin: 0 10px;
+  float: left;                          /* メインエリアの位置設定 */
+}
+a img:hover {
+  opacity: 0.8;
+}
+.sidebar {
+  width: 180px;
+  margin: 0 20px 0 30px;
+  float: right;                         /* サイドバーエリアの位置設定 */
+  font-family: 'Bitter', serif;
+}
+.sidebar h2 {
+  margin-bottom: 10px;
+}
+.sidebar ul {
+  font-size: 16px;
+  padding-left: 20px;
+}
+.sidebar ul a {
+  color: #333;
+}
+
+/*------------------------
+******  photograph.html  ******
+グリッドレイアウトページの制作
+-------------------------*/
+#photograph {
+  background-image: url(/images/bg-photograph.jpg);
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-attachment: fixed;
+  background-size: 100% auto;
+}
+#photograph .photograph-list li {        /* 画像ギャラリーのレイアウト */
+  float: left;
+  list-style: none;
+  margin: 0 20px 15px 0;
+}
+#photograph .photograph-list {
+  padding: 0;
+}
+
+/* 特定の条件に当てはまる要素を指定する疑似クラス「:nth-child()」
+ある要素を最初から数えて「2番目の要素」「2の倍数の要素」など指定することが可能
+2番目の場合・・・:nth-child(2)
+2の倍数の場合・・・:nth-child(2n)
+他にも初めの要素を指定する「:first-child」や最後の要素を指定する「:last-child」
+上記もあり崩れたレイアウトを修正する場合に利用する。
+*/
+/* 3番目で折り返しのため3の倍数で指定 */
+#photograph .photograph-list li:nth-child(3n) {
+  margin-right: 0;
+}
+
+/*------------------------
+******  video.html  ******
+-------------------------*/
+#video {
+  background-image: url(/images/bg-video.jpg);
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-attachment: fixed;
+  background-size: 100% auto;
+}
+
+/*------------------------
+******  contact.html  ******
+問い合わせページの作成
+-------------------------*/
+#contact {
+  background-image: url(/images/bg-contact.jpg);
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-attachment: fixed;
+  background-size: 100% auto;
+}
+/* アクセスセクション */
+#contact .access table {
+  float: left;
+}
+
+#contact .access th,
+#contact .access td {
+  text-align: left;
+  vertical-align: top;
+  line-height: 2.5;
+}
+#contact .access td {
+  padding-left: 30px;
+}
+#contact .access iframe {
+  width: 460px;
+  float: right;
+}
+/* コンタクトフォームセクション */
+#contact .form {
+  background-color: #eaeaea;
+  padding: 30px 50px;
+}
+#contact .form dl dt{           /*dtのレイアウト調整*/
+  width: 165px;
+  padding:10px 0;
+  float: left;
+  clear: both;
+}
+#contact .form dl dd {           /*dt要素と高さを合わせる調整*/
+  padding:10px 0;
+}
+/* 入力欄のレイアウト調整 */
+#contact .form .name {
+  width: 240px;
+  height: 30px;
+}
+#contact .form .email {
+  width: 300px;
+  height: 30px;
+}
+#contact .form .tel {
+  width: 240px;
+  height: 30px;
+}
+#contact .form .type {
+  width: 180px;
+  height: 30px;
+}
+#contact .form button {
+  background-color: #009cd3;
+  color: #fff;
+  font-size: 20px;
+  display: block;
+  width: 120px;
+  text-align: center;
+  line-height: 50px;
+  border-radius: 5px;
+  border: 3px solid #009cd3;
+  margin-left: 165px;             /*縦列の調整*/
+}
+#contact .form button:hover {
+  background-color: #fff;
+  color: #009cd3;
+  cursor: pointer;
+}
+/* 疑似要素で追加記述 */
+#contact .form .required::after {
+  content: "*";
+  color: #ff0000;
+}
+#contact .form .attention {
+  margin: 20px 0 0 165px;
+}
+
+/*------------------------
+******  メディアクエリ  ******
+-------------------------*/
+/* 画面サイズが768以下の場合に適用 タブレット */
+@media  only screen and (max-width:768px)  {
+  body {
+    width: 100%;
+    margin: 0 auto;
+    font-size: 1.9vw;
+  }
+  .main {
+    float: none;
+    width: auto;
+    margin: 0 5%;
+  }
+  #wrap {
+    margin-top: 100px;
+    padding-bottom: 0;
+  }
+  h1 {
+    font-size: 3.2vw;
+  }
+  h2 {
+    font-size: 3vw;
+  }
+  h2 img {
+    max-width: 100%;
+  }
+  .sidebar {
+    width: auto;
+    float: none;
+    margin: 0;
+    padding: 30px 40px 10px;
+    background-color: #f7f6f4;
+  }
+}
+/* 画面サイズが600px以下の場合に適用　スマホ */
+@media screen and (max-width:600px){
+  body {
+    font-size: 3.5vw;         /*vw(ビューポート)・・・Webブラウザに対する割合で利用者の端末に合わせて自動雨滴に切り替わる優れもの*/
+  }
+  h1 {
+    font-size: 7.2vw;
+  }
+  h2 {
+    font-size: 6vw;
+  }
+  header {
+    width: auto;
+    margin: 0 5%;
+  }
+  .logo {
+    float: none;
+    margin-top: 60px;
+    text-align: center;
+  }
+  .global-nav {
+    float: none;
+    text-align: center;
+    margin-top: 40px;
+    padding: 0;
+  }
+  .global-nav li {
+    display: inline;
+    float: none;
+    margin: 0 8px;
+  }
+  #wrap {
+    margin-top: 40px;
+    padding: 35px 0 0;
+  }
+  .content {
+    width: 100%;
+  }
+  .main {
+    float: none;
+    width: auto;
+    margin: 0 5%;
+  }
+  h2 img {
+    max-width: 100%;
+  }
+  #portfolio {
+    background-image: url(/images/bg-portfolio-sp.jpg);
+  }
+  .sidebar {
+    width: auto;
+    float: none;
+    margin: 0;
+    padding: 30px 20px 10px;
+    background-color: #f7f6f4;
+  }
+/* --- index.html --- */
+  #index {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    background-image: none;
+    background-color: #000;
+  }
+  #index .content {
+    margin-top: 100px;
+  }
+  #index h1 {
+    font-size: 10vw;
+    line-height: 1;
+  }
+  #index p {
+    width: 70%;
+    margin: 0 auto;
+    font-size: 3vw;
+    color: #fff;
+  }
+  #index footer {
+    margin-top: 0;
+  }
+}

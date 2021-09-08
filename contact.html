@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact｜風景写真家「SNAPPERS」</title>
+<link href="https://fonts.googleapis.com/css2?family=Bitter:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+<link href="/images/favicon.ico" rel="shortcut icon">
+</head>
+<body id="contact">
+<!----------------------
+        header
+----------------------->
+<header>
+  <div class="logo">
+      <a href="/index.html"><img src="./images/logo.png" alt="SNAPPERS"></a>
+  </div>
+  <nav>
+  <ul class="global-nav">
+    <li><a href="portfolio.html">Portfolio</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+</header>
+
+<!----------------------
+         wrap
+※問い合わせフォームはHTMLとPHPも合わせて作動する
+PHPとは「サーバーが受信した情報を指定されたメールアドレスに送信するプログラム」を指す
+----------------------->
+<div id="wrap">
+  <div class="content">
+    <div class="main-center">    <!-- シングルカラムページのためAbout同様でcontentの中にdiv要素を指定  -->
+      <h1>Contact</h1>
+      <p>SNAPPERSへのアクセス方法、お問い合わせ、撮影のご依頼フォームのページです。お気軽にお問い合わせください。</p>
+    </div>
+<!-- アクセスセクション -->
+    <section class="access clearfix">
+      <h2 class="icon">Access</h2>
+      <table>
+        <tr>
+          <th>所在地住所</th>
+          <td>〒◯◯◯-◯◯◯<br>東京都◯◯◯◯◯-◯-◯</td>
+        </tr>
+        <tr>
+          <th>電話番号</th>
+          <td>080-◯◯◯◯-◯◯◯◯</td>
+        </tr>
+        <tr>
+          <th>電車でのアクセス</th>
+          <td>新宿◯◯線◯◯駅より徒歩10分</td>
+        </tr>
+        <tr>
+          <th>お車でのアクセス</th>
+          <td>新宿I.Cより国道1号線経由で30分</td>
+        </tr>
+      </table>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3240.1917813441473!2d139.66341171555524!3d35.696897936719424!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018f2ebf65f8137%3A0x5b4d02dca3b08a17!2z44CSMTY0LTAwMTIg5p2x5Lqs6YO95Lit6YeO5Yy65pys55S677yW5LiB55uu77yS77yQ4oiS77yR77yV!5e0!3m2!1sja!2sjp!4v1630821357711!5m2!1sja!2sjp" width="460" height="220" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </section>
+<!-- コンタクトセクション -->
+    <section>
+      <h2 class="icon">Contact form</h2>
+      <div class="form">
+        <form>                                <!-- dl,dt,dd（定義リスト）について...dl要素はdt要素（用語）,dd要素（その用語に対する説明）をともなう記述型リストです。-->
+          <dl>
+            <dt><span class="required">お名前 </span> </dt>
+            <dd><input type="text" name="name" class="name" required></dd>                        <!-- 必須項目のinput要素にrequiredを入れることで必須になり、未入力だと警告が出る -->
+            <dt><span class="required">メールアドレス </span></dt>                                    <!-- name属性とはフォームを受信した各項目を判別するための属性-->
+            <dd><input type="email" name="email" class="email"　required></dd>
+            <dt>お電話番号</dt>
+            <dd><input type="tel" name="tel" class="tel"></dd>
+            <dt>お問い合わせ種別</dt>
+            <dd>
+            <select name="type" class="type">                                                     <!-- 選択式にはselectタグを使用し、選択項目はoptionタグで追加していく -->
+              <option value="撮影のご依頼">撮影のご依頼</option>                                      <!-- value属性とはどの項目が選択されたかを認識するための属性。今回の例で言うと、select要素のname属性(type)とoption要素のvalue属性の値が一対になってサーバーへ送信される-->
+              <option value="講演・各種メディア出演のご依頼">講演・各種メディア出演のご依頼</option>
+              <option value="その他お問い合わせ">その他お問い合わせ</option>
+            </select>
+            </dd>
+            <dt>ご希望のご連絡方法</dt>
+            <dd>
+              <input type="radio" name="contact" value="eメール">eメール
+              <input type="radio"　name="contact" value="お電話">お電話
+            </dd>
+            <dt>メッセージ</dt>
+            <dd>
+              <textarea name="message" id="message" cols="30" rows="5"></textarea>
+            </dd>
+          </dl>
+          <button type="submit" class="btn">送信</button>
+        </form>
+        <div class="attention">
+          <p>※「 <span class="required"></span> 」がついている項目は必須項目です。<br>
+          ※メッセージ送信後、48時間後に担当者よりご連絡いたします。</p>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+<!----------------------
+        footer
+----------------------->
+<footer>
+  <small>(C)2021 Hiroaki-Muramatsu.</small>
+</footer>
+</body>
+</html>
