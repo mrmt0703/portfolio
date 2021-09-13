@@ -1,9 +1,12 @@
 @charset "UTF-8";     /* 文字コードの記述 */
+@import 'https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300';
 
 /* -----------------------
 ******  common.html  ******
 --------------------------*/
 body {
+  width: 100%;
+  margin: 0 auto;
   background-color: #ccc;
   color: #333;
   font-size: 15px;
@@ -11,55 +14,129 @@ body {
   margin: 0 auto;
 }
 a {
-  color: #3538aa;
+  color: #fff;
   text-decoration: none;
   cursor: pointer;
 }
-
+/*
 a:visited {
-  color: #788d93;             /* 訪問済みの状態 */
-}
-a:hover {
-  text-decoration:underline;    /* リンク上でアンダーライン表示の状態 */
-}
+  color: #009cd3; }            /* 訪問済みの状態 */
+
+
 /* -----------------------
           header
 --------------------------*/
 header {
+  width: 90%;
   margin: 0 auto;
-  width: 80%;
-  height: 100px;
+  display: flex;
+  align-items: center;
 }
-.logo {
-  float: left;
-  margin-top: 40px;
+/*------------------------------
+
+  ここから下がハンバーガーメニュー
+  に関するCSS
+
+------------------------------*/
+
+/* チェックボックスは非表示に */
+.drawer-hidden {
+  display: none;
 }
-.global-nav {
-  float: right;
-  margin-top: 40px;
+/* ハンバーガーアイコンの設置スペース */
+.drawer-open {
+  display: flex;
+  height: 60px;
+  width: 60px;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 100;/* 重なり順を一番上に */
+  cursor: pointer;
 }
-.global-nav li {
-  float: left;
-  margin: 0 20px;
-  font-size: 20px;
+
+/* ハンバーガーメニューのアイコン */
+.drawer-open span,
+.drawer-open span:before,
+.drawer-open span:after {
+  content: '';
+  display: block;
+  height: 3px;
+  width: 35px;
+  border-radius: 3px;
+  background: #fff;
+  transition: 0.5s;
+  position: absolute;
+}
+
+/* 三本線のうち一番上の棒の位置調整 */
+.drawer-open span:before {
+  bottom: 8px;
+}
+
+/* 三本線のうち一番下の棒の位置調整 */
+.drawer-open span:after {
+  top: 8px;
+}
+
+/* アイコンがクリックされたら真ん中の線を透明にする */
+#drawer-check:checked ~ .drawer-open span {
+  background: rgba(255, 255, 255, 0);
+}
+
+/* アイコンがクリックされたらアイコンが×印になように上下の線を回転 */
+#drawer-check:checked ~ .drawer-open span::before {
+  bottom: 0;
+  transform: rotate(225deg);
+}
+
+#drawer-check:checked ~ .drawer-open span::after {
+  top: 0;
+  transform: rotate(-225deg);
+}
+/* メニューのデザイン*/
+.drawer-content {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 100%;/* メニューを画面の外に飛ばす */
+  z-index: 99;
+  background: #a9a9a9;
+  transition: .5s;
+}
+.drawer-list  {
+  padding: 0;
+}
+.drawer-list li {
   list-style: none;
-  font-family: 'Bitter', serif;
+  font-size: 1.5vw;
+  text-align: center;
+  padding: 40px 0;
+  transition: .3s;
+  -webkit-transform: scale(1);
+  transform: scale(1);
 }
-.global-nav li a {
-  color: #fff;
+.drawer-list li:hover {
+  -webkit-transform: scale(1.5);
+  transform: scale(1.5);
 }
-.global-nav li a:hover {
-  border-bottom: 2px solid #fff;
-  padding-bottom: 3px;
-  text-decoration: none;
+.drawer-list li:first-child {
+  margin-top: 15%;
 }
+
+/* アイコンがクリックされたらメニューを表示 */
+#drawer-check:checked ~ .drawer-content {
+  left: 0;/* メニューを画面に入れる */
+}
+
 /* -----------------------
           wrap
 --------------------------*/
 /* ※id属性にcssを適用する場合は、#(シャープ)の後ろにid名を記述していく */
 /* プロパティclearはfloatを解除するためのプロパティ。今回はheaderに付与されているがheader以降も反映されてしまうため記述が必要になる */
 #wrap {
-  width: 80%;
+  width: 90%;
   margin: 0 auto;
   clear: both;
   background-color: #fff;
@@ -74,10 +151,9 @@ header {
          footer
 --------------------------*/
 footer {
+  width: 80%;
   color: #fff;
   text-align: center;
-  padding: 20px 0;
-  background-color: #767671;
 }
 footer small {
   font-size: 12px;
@@ -87,7 +163,7 @@ footer small {
 ******  index.html  ******
 -------------------------*/
 #index {
-  background-image: url(/images/perfume-ring.jpg);
+  background-color: #000;
   background-repeat: no-repeat;         /* 繰り返しを制御する */
   background-position: center center;   /* 表示開始位置を指定する */
   background-attachment: fixed;         /* 表示位置を固定する */
@@ -100,8 +176,8 @@ footer small {
 }
 
 #index h1 {
-  font-size: 100px;
-  line-height: 1;
+  font-size: 4.5vw;
+  line-height: 1.3;
   color: #fff;
   font-family: 'Bitter', serif;
   margin-bottom: 50px;
@@ -111,32 +187,88 @@ footer small {
   margin-top: 150px;
 }
 #index p {
-  font-size: 16px;
+  font-size: 0.9vw;
   color: #fff;
 }
-.btn a {
-  background-color: #009cd3;
+
+/* --- To Portfolio ボタン --- */
+.btn {
+  line-height: 50px;
+  height: 50px;
+  text-align: center;
+  width: 240px;
+  cursor: pointer;
+  margin-top: 60px;
+}
+.btn-one {
   color: #fff;
   font-size: 20px;
-  font-family: 'Bitter', serif;
-  display: block;
-  width: 185px;                         /* inline要素からblock要素に変更し、横幅を指定 */
-  text-align: center;
-  line-height: 50px;
-  margin-top: 20px;                     /* 上下に高さを持たせるためにline-heightし中央寄せて本文とのバランスでmargin-topを指定 */
-  border-radius: 5px;                   /* ボタンの角を丸くする */
-  border: 3px solid #009cd3;          /* マウスを置いたときに色を反転させるためのcss */
+  transition: all 0.3s;
+  position: relative;
 }
-.btn a:hover {
-  text-decoration: none;
-  background-color: #fff;
-  color: #009cd3;                     /* 通常状態と真逆でcolorを設定することでわかりやすく反転する */
+.btn-one a {
+  transition: all 0.3s;
+  position: relative;
+  z-index: 98;
 }
-#index footer {
+.btn-one::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
   width: 100%;
-  margin: 150px auto 0 auto;
+  height: 100%;
+  z-index: 1;
+  opacity: 0;
+  transition: all 0.3s;
+  border-top-width: 1px;
+  border-bottom-width: 1px;
+  border-top-style: solid;
+  border-bottom-style: solid;
+  border-top-color: rgba(255,255,255,0.5);
+  border-bottom-color: rgba(255,255,255,0.5);
+  transform: scale(0.1, 1);
+}
+.btn-one:hover span {
+  letter-spacing: 3px;
+}
+.btn-one:hover::before {
+  opacity: 1;
+  transform: scale(1, 1);
+}
+.btn-one::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  transition: all 0.3s;
+  background-color: rgba(255,255,255,0.1);
+  border-radius: 5px;
+}
+.btn-one:hover::after {
+  opacity: 0;
+  transform: scale(0.1, 1);
+}
+
+#index footer {
+  width: 90%;
+  margin: 80px auto 0 auto;
   text-align: left;
   background-color: transparent;         /* フッターの背景色も解除 */
+}
+
+/* ----- particles.js ------*/
+#index html,body {
+  height: 100%;/*高さを100%にして描画エリアをとる*/
+}
+#index #particles-js{
+	position:fixed;/*描画固定*/
+	z-index:-1;/*描画を一番下に*/
+	width: 100%;
+	height: 100%;
 }
 
 /*------------------------
@@ -391,6 +523,17 @@ a img:hover {
     margin: 0 auto;
     font-size: 1.9vw;
   }
+  header {
+    width: 100%;
+    margin: 0 auto;
+  }
+  .drawer-list li {
+    font-size: 4vw;
+    padding: 30px 0;
+  }
+  .drawer-list li:first-child {
+    margin-top: 30%;
+  }
   .main {
     float: none;
     width: auto;
@@ -416,8 +559,42 @@ a img:hover {
     padding: 30px 40px 10px;
     background-color: #f7f6f4;
   }
+  /* ------index.html-------- */
+  #index {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+
+  }
+  #index .content {
+    margin-top: 100px;
+  }
+  #index h1 {
+    font-size: 7vw;
+    line-height: 1.5;
+  }
+  #index p {
+    width: 100%;
+    margin: 0 auto;
+    font-size: 2vw;
+    color: #fff;
+  }
+  #index footer {
+    text-align: center;
+    margin-top: 0;
+  }
+  #index .btn {
+    margin: 100px 0 100px 0;
+  }
+  #index .btn-box {
+    display: flex;
+    justify-content: center;
+  }
 }
-/* 画面サイズが600px以下の場合に適用　スマホ */
+
+/*--------------------
+画面サイズが600px以下の場合に適用(スマホ)
+---------------------- */
 @media screen and (max-width:600px){
   body {
     font-size: 3.5vw;         /*vw(ビューポート)・・・Webブラウザに対する割合で利用者の端末に合わせて自動雨滴に切り替わる優れもの*/
@@ -429,25 +606,10 @@ a img:hover {
     font-size: 6vw;
   }
   header {
-    width: auto;
-    margin: 0 5%;
+    width: 100%;
+    margin: 0;
   }
-  .logo {
-    float: none;
-    margin-top: 60px;
-    text-align: center;
-  }
-  .global-nav {
-    float: none;
-    text-align: center;
-    margin-top: 40px;
-    padding: 0;
-  }
-  .global-nav li {
-    display: inline;
-    float: none;
-    margin: 0 8px;
-  }
+
   #wrap {
     margin-top: 40px;
     padding: 35px 0 0;
@@ -475,26 +637,30 @@ a img:hover {
   }
 /* --- index.html --- */
   #index {
-    width: 100%;
-    margin: 0 auto;
     text-align: center;
-    background-image: none;
-    background-color: #000;
   }
   #index .content {
-    margin-top: 100px;
+    margin-top: 60px;
   }
   #index h1 {
     font-size: 10vw;
-    line-height: 1;
+    line-height: 1.5;
   }
   #index p {
-    width: 70%;
+    width: 80%;
     margin: 0 auto;
     font-size: 3vw;
     color: #fff;
   }
   #index footer {
+    text-align: center;
     margin-top: 0;
+  }
+  #index .btn {
+    margin: 40px 0 50px 0;
+  }
+  #index .btn-box {
+    display: flex;
+    justify-content: center;
   }
 }
