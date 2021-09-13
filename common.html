@@ -16,16 +16,28 @@
         header
 ----------------------->
 <header>
-  <div class="logo">
-      <a href="/index.html"><img src="./images/logo.png" alt="SNAPPERS"></a>
+  <div class="logo">logo</div><!-- /.logo -->
+  <!-- ハンバーガーメニュー部分 -->
+  <div class="drawer">
+    <!-- ハンバーガーメニューの表示・非表示を切り替えるチェックボックス -->
+    <input type="checkbox" id="drawer-check" class="drawer-hidden" >
+    <!-- ハンバーガーアイコン -->
+    <label for="drawer-check" class="drawer-open"><span></span></label>
+    <!-- メニュー -->
+    <nav class="drawer-content">
+      <ul class="drawer-list">
+        <li class="drawer-item">
+          <a href="portfolio.html">Portfolio</a>
+        </li><!-- /.drawer-item -->
+        <li class="drawer-item">
+          <a href="about.html">About</a>
+        </li><!-- /.drawer-item -->
+        <li class="drawer-item">
+          <a href="contact.html">Contact</a>
+        </li><!-- /.drawer-item -->
+      </ul><!-- /.drawer-list -->
+    </nav>
   </div>
-  <nav>
-  <ul class="global-nav">
-    <li><a href="portfolio.html">Portfolio</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="contact.html">Contact</a></li>
-  </ul>
-</nav>
 </header>
 
 <!----------------------

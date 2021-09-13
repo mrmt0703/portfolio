@@ -10,31 +10,46 @@
 <link href="/images/favicon.ico" rel="shortcut icon">
 </head>
 <!-- 他のページと区別するためbodyタグにid属性を設定 -->
+<div id="particles-js"></div>
 <body id="index">
 <!----------------------
         header
 ----------------------->
 <header>
-  <div class="logo">
-      <a href="/index.html"><img src="./images/logo.png" alt="SNAPPERS"></a>
+  <!-- ハンバーガーメニュー部分 -->
+  <div class="drawer">
+    <!-- ハンバーガーメニューの表示・非表示を切り替えるチェックボックス -->
+    <input type="checkbox" id="drawer-check" class="drawer-hidden" >
+    <!-- ハンバーガーアイコン -->
+    <label for="drawer-check" class="drawer-open"><span></span></label>
+    <!-- メニュー -->
+    <nav class="drawer-content">
+      <ul class="drawer-list">
+        <li class="drawer-item">
+          <a href="portfolio.html">Portfolio</a>
+        </li>
+        <li class="drawer-item">
+          <a href="about.html">About</a>
+        </li>
+        <li class="drawer-item">
+          <a href="contact.html">Contact</a>
+        </li>
+      </ul>
+    </nav>
   </div>
-  <nav>
-  <ul class="global-nav">
-    <li><a href="portfolio.html">Portfolio</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="contact.html">Contact</a></li>
-  </ul>
-</nav>
 </header>
-
 <!----------------------
          wrap
 ----------------------->
 <div id="wrap">
   <div class="content">
     <h1>PORTFOLIO <br>design by <br>HIROAKI MURAMATSU</h1>
-    <p>This Web site is <br>チュートリアル形式でHTMLとCSSを学びながら完成を目指します。楽しんで作成しましょう。</p>
-    <p class="btn"><a href="/portfolio.html">My Portfolio</a></p>
+    <p>このWebサイトは、東京で活動するWebデザイナー村松広彬のポートフォリオサイトです。<br>これまでに作成した作品や、デザイナーとして携わったプロジェクトなどを掲載しています。<br>どうぞ是非ご覧ください。</p>
+    <div class="btn-box">
+      <div class="btn btn-one">
+      <a href="portfolio.html">To Portfolio</a>
+      </div>
+    </div>
   </div>
 </div>
 <!----------------------
@@ -43,5 +58,7 @@
 <footer>
   <small>(C)2021 Hiroaki-Muramatsu.</small>
 </footer>
+<script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script src="particles.js"></script>
 </body>
 </html>
