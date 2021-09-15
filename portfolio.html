@@ -8,24 +8,37 @@
 <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/style.css">
 <link href="/images/favicon.ico" rel="shortcut icon">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
+<div id="particles-js"></div>
 <body id="portfolio">
 <!----------------------
         header
 ----------------------->
 <header>
-  <div class="logo">
-      <a href="/index.html"><img src="./images/logo.png" alt="SNAPPERS"></a>
+  <a class="logo" href="/portfolio.html">/WEBDESIGN/</a>
+  <!-- ハンバーガーメニュー部分 -->
+  <div class="drawer">
+    <!-- ハンバーガーメニューの表示・非表示を切り替えるチェックボックス -->
+    <input type="checkbox" id="drawer-check" class="drawer-hidden" >
+    <!-- ハンバーガーアイコン -->
+    <label for="drawer-check" class="drawer-open"><span></span></label>
+    <!-- メニュー -->
+    <nav class="drawer-content">
+      <ul class="drawer-list">
+        <li class="drawer-item">
+          <a href="portfolio.html">Portfolio</a>
+        </li>
+        <li class="drawer-item">
+          <a href="about.html">About</a>
+        </li>
+        <li class="drawer-item">
+          <a href="contact.html">Contact</a>
+        </li>
+      </ul>
+    </nav>
   </div>
-  <nav>
-  <ul class="global-nav">
-    <li><a href="portfolio.html">Portfolio</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="contact.html">Contact</a></li>
-  </ul>
-</nav>
 </header>
-
 <!----------------------
          wrap
 ----------------------->
@@ -80,5 +93,7 @@
 <footer>
   <small>(C)2021 Hiroaki-Muramatsu.</small>
 </footer>
+<script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script src="/index.js"></script>
 </body>
 </html>

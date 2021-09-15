@@ -1,14 +1,21 @@
+// ----------ハンバーガーメニュー押下後のbody表示、非表示切替-------------
+$(function(){
+  $(".drawer-open").click(function() {
+    $(".content, footer").fadeToggle();
+  });
+});
+//--------index.htmlの幾何学模様jS------------
 particlesJS("particles-js",{
   "particles":{
     "number":{
-      "value":70,//この数値を変更すると幾何学模様の数が増減できる
+      "value":30,//この数値を変更すると幾何学模様の数が増減できる
       "density":{
         "enable":true,
         "value_area":800
       }
     },
     "color":{
-      "value":"#ffffff"//色
+      "value":"#696969"//色
     },
     "shape":{
       "type":"polygon",//形状はpolygonを指定
@@ -46,7 +53,7 @@ particlesJS("particles-js",{
     "line_linked":{
       "enable":true,
       "distance":150,
-      "color":"#ffffff",
+      "color":"#000",
       "opacity":0.6,
       "width":1
     },
