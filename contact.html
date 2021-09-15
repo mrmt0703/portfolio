@@ -8,22 +8,38 @@
 <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/style.css">
 <link href="/images/favicon.ico" rel="shortcut icon">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body id="contact">
-<!----------------------
+  <!-- 幾何学模様 -->
+  <div id="particles-js"></div>
+
+  <!----------------------
         header
 ----------------------->
 <header>
-  <div class="logo">
-      <a href="/index.html"><img src="#" alt="LOGO"></a>
+  <a class="logo" href="/portfolio.html">/WEBDESIGN/</a>
+  <!-- ハンバーガーメニュー部分 -->
+  <div class="drawer">
+    <!-- ハンバーガーメニューの表示・非表示を切り替えるチェックボックス -->
+    <input type="checkbox" id="drawer-check" class="drawer-hidden" >
+    <!-- ハンバーガーアイコン -->
+    <label for="drawer-check" class="drawer-open"><span></span></label>
+    <!-- メニュー -->
+    <nav class="drawer-content">
+      <ul class="drawer-list">
+        <li class="drawer-item">
+          <a href="portfolio.html">Portfolio</a>
+        </li>
+        <li class="drawer-item">
+          <a href="about.html">About</a>
+        </li>
+        <li class="drawer-item">
+          <a href="contact.html">Contact</a>
+        </li>
+      </ul>
+    </nav>
   </div>
-  <nav>
-  <ul class="global-nav">
-    <li><a href="portfolio.html">Portfolio</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="contact.html">Contact</a></li>
-  </ul>
-</nav>
 </header>
 
 <!----------------------
@@ -83,7 +99,7 @@ PHPとは「サーバーが受信した情報を指定されたメールアド�
             <dt>ご希望のご連絡方法</dt>
             <dd>
               <input type="radio" name="contact" value="eメール">eメール
-              <input type="radio"　name="contact" value="お電話">お電話
+              <input type="radio" name="contact" value="お電話">お電話
             </dd>
             <dt>メッセージ</dt>
             <dd>
@@ -106,5 +122,7 @@ PHPとは「サーバーが受信した情報を指定されたメールアド�
 <footer>
   <small>(C)2021 Hiroaki-Muramatsu.</small>
 </footer>
+<script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script src="/index.js"></script>
 </body>
 </html>

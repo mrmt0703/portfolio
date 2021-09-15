@@ -7,14 +7,15 @@
 body {
   width: 100%;
   margin: 0 auto;
-  background-color: #ccc;
+  background-color: #fff;
   color: #333;
   font-size: 15px;
   line-height: 2;
   margin: 0 auto;
 }
 a {
-  color: #fff;
+  color: #000;
+  font-family: 'Bitter', serif;
   text-decoration: none;
   cursor: pointer;
 }
@@ -29,16 +30,19 @@ a:visited {
 header {
   width: 90%;
   margin: 0 auto;
+  margin-top: 40px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
-/*------------------------------
+header .logo {
+  font-size: 1.8vw;
+}
 
+/*------------------------------
   ここから下がハンバーガーメニュー
   に関するCSS
-
 ------------------------------*/
-
 /* チェックボックスは非表示に */
 .drawer-hidden {
   display: none;
@@ -46,8 +50,8 @@ header {
 /* ハンバーガーアイコンの設置スペース */
 .drawer-open {
   display: flex;
-  height: 60px;
-  width: 60px;
+  height: 80px;
+  width: 80px;
   justify-content: center;
   align-items: center;
   position: relative;
@@ -62,9 +66,9 @@ header {
   content: '';
   display: block;
   height: 3px;
-  width: 35px;
+  width: 40px;
   border-radius: 3px;
-  background: #fff;
+  background: #000;
   transition: 0.5s;
   position: absolute;
 }
@@ -102,16 +106,15 @@ header {
   top: 0;
   left: 100%;/* メニューを画面の外に飛ばす */
   z-index: 99;
-  background: #a9a9a9;
   transition: .5s;
 }
 .drawer-list  {
   padding: 0;
+  text-align: center;
 }
 .drawer-list li {
   list-style: none;
-  font-size: 1.5vw;
-  text-align: center;
+  font-size: 2.5vw;
   padding: 40px 0;
   transition: .3s;
   -webkit-transform: scale(1);
@@ -122,7 +125,7 @@ header {
   transform: scale(1.5);
 }
 .drawer-list li:first-child {
-  margin-top: 15%;
+  margin-top: 10%;
 }
 
 /* アイコンがクリックされたらメニューを表示 */
@@ -139,7 +142,6 @@ header {
   width: 90%;
   margin: 0 auto;
   clear: both;
-  background-color: #fff;
   margin-top: 220px;              /* メインヴィジュアルが隠れてしまったため上端に余白を追加 */
   padding: 35px 0;
 }
@@ -151,8 +153,9 @@ header {
          footer
 --------------------------*/
 footer {
-  width: 80%;
-  color: #fff;
+  width: 90%;
+  margin: 0 auto;
+  color: #000;
   text-align: center;
 }
 footer small {
@@ -163,7 +166,7 @@ footer small {
 ******  index.html  ******
 -------------------------*/
 #index {
-  background-color: #000;
+  background-color: #fff;
   background-repeat: no-repeat;         /* 繰り返しを制御する */
   background-position: center center;   /* 表示開始位置を指定する */
   background-attachment: fixed;         /* 表示位置を固定する */
@@ -178,19 +181,18 @@ footer small {
 #index h1 {
   font-size: 4.5vw;
   line-height: 1.3;
-  color: #fff;
+  color: #000;
   font-family: 'Bitter', serif;
   margin-bottom: 50px;
   border: none;                          /* h1の下線を解除 */
 }
 #index .content {
-  margin-top: 150px;
+  margin-top: 130px;
 }
 #index p {
   font-size: 0.9vw;
-  color: #fff;
+  color: #000;
 }
-
 /* --- To Portfolio ボタン --- */
 .btn {
   line-height: 50px;
@@ -201,7 +203,6 @@ footer small {
   margin-top: 60px;
 }
 .btn-one {
-  color: #fff;
   font-size: 20px;
   transition: all 0.3s;
   position: relative;
@@ -210,6 +211,7 @@ footer small {
   transition: all 0.3s;
   position: relative;
   z-index: 98;
+  color: #000;
 }
 .btn-one::before {
   content: '';
@@ -225,9 +227,9 @@ footer small {
   border-bottom-width: 1px;
   border-top-style: solid;
   border-bottom-style: solid;
-  border-top-color: rgba(255,255,255,0.5);
-  border-bottom-color: rgba(255,255,255,0.5);
-  transform: scale(0.1, 1);
+  border-top-color: rgba(5,5,5,0.5);
+  border-bottom-color: rgba(5,5,5,0.5);
+  transform: scale(1, 1);
 }
 .btn-one:hover span {
   letter-spacing: 3px;
@@ -245,8 +247,8 @@ footer small {
   height: 100%;
   z-index: 1;
   transition: all 0.3s;
-  background-color: rgba(255,255,255,0.1);
-  border-radius: 5px;
+  background-color: rgba(5,5,5,0.1);
+  border-radius: 3px;
 }
 .btn-one:hover::after {
   opacity: 0;
@@ -261,10 +263,10 @@ footer small {
 }
 
 /* ----- particles.js ------*/
-#index html,body {
+html,body {
   height: 100%;/*高さを100%にして描画エリアをとる*/
 }
-#index #particles-js{
+#particles-js{
 	position:fixed;/*描画固定*/
 	z-index:-1;/*描画を一番下に*/
 	width: 100%;
@@ -274,29 +276,21 @@ footer small {
 /*------------------------
 ******  about.html  ******
 -------------------------*/
-#about {
-  background-image: url(/images/bg-about.jpg);
-  background-repeat: no-repeat;
-  background-position: center top;                 /* topにすることで上端に背景画像を設置する */
-  background-attachment: fixed;
-  background-size: 100% auto;                      /*横方向へ100％ 縦方向へはautoで領域に収まるよう指定し要素の長辺に合わせて表示する*/
-  margin: 0 auto;
+#about #wrap {
+  margin-top: 30px;
 }
 .main-center {
-  width: 90%;
+  width: 100%;
   margin: 0 auto;
 }
-h1 {
+#about h1 {
   font-family: 'Bitter', serif;
-  font-size: 36px;
+  font-size: 3.5vw;
   border-bottom: 1px solid #ccc;
 }
 h2 {
   font-family: 'Bitter', serif;
-  font-size: 24px;
-}
-h2 img {
-  width: 100%;
+  font-size: 2vw;
 }
 
 /* 【疑似要素とは】
@@ -307,17 +301,24 @@ h2 img {
 .icon::before {
   content: "";
   padding-right: 10px;
-  border-left: 7px solid #9cb4a4;
+  border-left: 7px solid #ccc;
 }
 #about .profile-txt {
-  width: 540px;
-  float: left;                          /* プロフィール文のレイアウト */
+  width: 45%;
+  font-size: 1.8vh;
+  line-height: 2.5;
+  float: left;                 /* プロフィール文のレイアウト */
 }
 #about .profile-txt span{
   font-weight: bold;
 }
 #about .profile-img {
+  width: 40%;
+  object-fit: cover;
+  height: 45vh;
   float: right;
+  margin: 60px 60px 0 0;
+
 }
 
 /*親要素に高さを持たせ要素の回り込みを解除するclearfix
@@ -330,20 +331,22 @@ h2 img {
   clear: both;
 }
 section {
-  margin-bottom: 35px;
+  margin-bottom: 30px;
 }
 #about .career th {
-  width: 240px;
+  width: 10%;
   background-color: #f0f0f0;
   padding: 12px 0;
   border: 1px solid #ccc;             /* th要素はデフォルトで中央揃え */
 }
 #about .career td {
-  width: 660px;
+  width: 40%;
   padding: 12px 0 12px 40px;
   border: 1px solid #ccc;
 }
 table {
+  width: 100%;
+  margin: 0 auto;
   border-spacing: 0;                    /* テーブル要素（セル間）の余白を調整 */
   border-collapse: collapse;            /* 隣り合うボーダーを結合するか分離するか指定 */
 }
@@ -516,6 +519,7 @@ a img:hover {
 /*------------------------
 ******  メディアクエリ  ******
 -------------------------*/
+
 /* 画面サイズが768以下の場合に適用 タブレット */
 @media  only screen and (max-width:768px)  {
   body {
@@ -525,7 +529,11 @@ a img:hover {
   }
   header {
     width: 100%;
-    margin: 0 auto;
+    margin: 20px auto;
+  }
+  header .logo {
+    margin-left: 10px;
+    font-size: 3.5vw;
   }
   .drawer-list li {
     font-size: 4vw;
@@ -544,7 +552,7 @@ a img:hover {
     padding-bottom: 0;
   }
   h1 {
-    font-size: 3.2vw;
+    font-size: 2.5vw;
   }
   h2 {
     font-size: 3vw;
@@ -564,10 +572,9 @@ a img:hover {
     width: 100%;
     margin: 0 auto;
     text-align: center;
-
   }
   #index .content {
-    margin-top: 100px;
+    margin-top: 130px;
   }
   #index h1 {
     font-size: 7vw;
@@ -575,29 +582,102 @@ a img:hover {
   }
   #index p {
     width: 100%;
-    margin: 0 auto;
+    margin-top: 60px;
     font-size: 2vw;
-    color: #fff;
+    color: #000;
   }
   #index footer {
     text-align: center;
     margin-top: 0;
   }
   #index .btn {
-    margin: 100px 0 100px 0;
+    margin: 60px 0 80px 0;
   }
   #index .btn-box {
     display: flex;
     justify-content: center;
   }
-}
+  #index footer {
+    display: none;
+  }
+  /*-------- about.html-------- */
+  #about #wrap {
+    margin-top: 0;
+    padding: 0;
+  }
+  .main-center {
+    width: 100%;
+    margin: 0 auto;
+  }
+  h2 {
+    font-family: 'Bitter', serif;
+    font-size: 30px;
+  }
 
+  /* 【疑似要素とは】
+  要素の前後にテキストや画像を追加、また要素内の特定箇所にスタイルを指定することができるコーディング
+  記述例    [セレクタ]::[疑似要素名]
+  要素の前に追加したい場合は「::before」、後ろに追加の場合は「::after」となる
+  */
+  .icon::before {
+    content: "";
+    padding-right: 10px;
+    border-left: 7px solid #ccc;
+  }
+  #about .profile-txt {
+    width: 45%;
+    font-size: 1.7vh;
+    line-height: 2.5;
+    float: left;                 /* プロフィール文のレイアウト */
+  }
+  #about .profile-txt span{
+    font-weight: bold;
+  }
+  #about .profile-img {
+    width: 35%;
+    object-fit: cover;
+    height: 50vh;
+    float: right;
+    margin: 80px 60px 0 0;
+    object-position: 20% 40%;
+  }
+  /*親要素に高さを持たせ要素の回り込みを解除するclearfix
+  クラス名で追加したclearfixに疑似クラス::afterを追加しcontentで空BOXを生成
+  空BOXはインライン要素のためblock要素に変更し、clear:bothでfloatを解除することによりレイアウトが修正される
+  */
+  .clearfix::after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+  section {
+    margin-bottom: 35px;
+  }
+  tbody {
+    margin: 0;
+  }
+  #about .career th {
+    background-color: #f0f0f0;
+    padding: 12px 0;
+    border: 1px solid #ccc;             /* th要素はデフォルトで中央揃え */
+  }
+  #about .career td {
+    padding: 12px 0 12px 40px;
+    border: 1px solid #ccc;
+  }
+  #about table {
+    margin: 0;
+    border-spacing: 0;                    /* テーブル要素（セル間）の余白を調整 */
+    border-collapse: collapse;            /* 隣り合うボーダーを結合するか分離するか指定 */
+  }
+}
 /*--------------------
 画面サイズが600px以下の場合に適用(スマホ)
 ---------------------- */
 @media screen and (max-width:600px){
   body {
-    font-size: 3.5vw;         /*vw(ビューポート)・・・Webブラウザに対する割合で利用者の端末に合わせて自動雨滴に切り替わる優れもの*/
+    font-size: 3.5vw;
+    height: 100%;         /*vw(ビューポート)・・・Webブラウザに対する割合で利用者の端末に合わせて自動雨滴に切り替わる優れもの*/
   }
   h1 {
     font-size: 7.2vw;
@@ -605,10 +685,14 @@ a img:hover {
   h2 {
     font-size: 6vw;
   }
+  span {
+    font-size: 4vw;
+  }
   header {
     width: 100%;
     margin: 0;
   }
+
 
   #wrap {
     margin-top: 40px;
@@ -640,24 +724,21 @@ a img:hover {
     text-align: center;
   }
   #index .content {
-    margin-top: 60px;
+    margin-top: 40px;
   }
   #index h1 {
     font-size: 10vw;
     line-height: 1.5;
   }
+
   #index p {
     width: 80%;
     margin: 0 auto;
     font-size: 3vw;
-    color: #fff;
-  }
-  #index footer {
-    text-align: center;
-    margin-top: 0;
+    color: #000;
   }
   #index .btn {
-    margin: 40px 0 50px 0;
+    margin-top: 60px;
   }
   #index .btn-box {
     display: flex;
